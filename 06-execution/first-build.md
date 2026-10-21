@@ -1,6 +1,6 @@
 # First build in 25 to 35 focused hours
 
-Status: execution plan, not started
+Status: original execution plan, kept as a record; the build is complete (see the README for current results)
 
 ## Milestone 1: a defensible paper decision
 
