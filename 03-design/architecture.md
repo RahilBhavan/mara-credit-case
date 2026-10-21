@@ -62,4 +62,6 @@ Generate fixed tables and charts for the memo. If time remains, add one local pa
 
 ## Likely implementation choices
 
+This section records the choices made before the build. The built case uses a standard-library Python engine in `src/credit_risk/` as the calculation source, and the workbook is audited against it.
+
 Use Excel or Google Sheets for the required model because the role asks for spreadsheet analysis. A small Python standard-library script can later fetch public JSON, hash snapshots, and export normalized CSV files. Do not add a web framework until the memo and workbook pass validation.

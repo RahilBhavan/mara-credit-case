@@ -1,6 +1,6 @@
 # Open decisions and fallback paths
 
-Status: unresolved at the end of planning
+Status: planning record of decisions open at the end of planning; the built case uses one simulated USDC lot on Base as collateral, not BTC
 
 | Decision or gap | Why it matters | Resolve before | Fallback |
 |---|---|---|---|
