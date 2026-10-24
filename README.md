@@ -55,7 +55,7 @@ The package outputs are in `outputs/`:
 
 ## Run it
 
-You need Python 3.9 or later. CI uses Python 3.11.
+You need Python 3.11 or later (the pinned Pillow 13 requires it). CI uses Python 3.11.
 
 ```bash
 pip install -r requirements.txt
