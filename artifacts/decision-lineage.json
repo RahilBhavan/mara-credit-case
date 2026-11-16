@@ -194,7 +194,7 @@
       "calculation_or_rule": "Static reported-cash bridge less identified obligations and potential put",
       "claim_type": "sensitivity",
       "committee_claim": "Residual liquidity after potential holder put",
-      "current_value": "-194790000.00",
+      "current_value": "502685000.00",
       "evidence_classes": [
         "reported"
       ],

@@ -555,16 +555,16 @@ def check_liquidity_analysis() -> list[Result]:
         problems = []
         if len(rows) != 9 or len(csv_rows) != 9:
             problems.append("expected nine synchronized liquidity bridge rows")
-        if payload.get("residual_before_potential_put_usd") != "96810000.00":
-            problems.append("pre-put residual does not equal $96.81 million")
-        if payload.get("residual_after_potential_put_usd") != "-194790000.00":
-            problems.append("post-put residual does not equal negative $194.79 million")
+        if payload.get("residual_before_potential_put_usd") != "794285000.00":
+            problems.append("pre-put residual does not equal $794.29 million")
+        if payload.get("residual_after_potential_put_usd") != "502685000.00":
+            problems.append("post-put residual does not equal $502.69 million")
         if any(row.get("source_id") not in {"SRC-001", "SRC-002"} for row in rows):
             problems.append("liquidity row lacks a registered public source")
         limit = payload.get("method_limit", "")
         if "not a borrowing-entity cash forecast" not in limit or "sensitivity" not in limit:
             problems.append("method limitation does not preserve forecast and holder-put boundaries")
-        actual = "; ".join(problems) if problems else "Nine-row public-data bridge reconciles to $96.81m before and negative $194.79m after the potential holder put, with forecast limitations explicit."
+        actual = "; ".join(problems) if problems else "Nine-row public-data bridge reconciles to $794.29m before and $502.69m after the potential holder put, with forecast limitations explicit."
         return [result("X-09", "FAIL" if problems else "PASS", "Public-data liquidity bridge is reconciled and bounded", actual, path)]
     except (OSError, UnicodeError, json.JSONDecodeError, csv.Error, TypeError) as exc:
         return [result("X-09", "FAIL", "Public-data liquidity bridge is reconciled and bounded", f"Cannot validate liquidity analysis: {exc}", path)]

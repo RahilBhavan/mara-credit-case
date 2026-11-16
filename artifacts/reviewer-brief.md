@@ -19,7 +19,7 @@ All facility, collateral, Base, portfolio, policy, and rating terms are fictiona
 | Concentration | $4.0m | Assumed shared-route limit |
 | **Recommendation** | **$3.0m** | Rounded below collateral cap; conditions must be met before funding |
 
-Public issuer context is mixed: MARA reported $421.3 million of cash and cash equivalents, $2.1 billion fair value across 35,577 bitcoin, and approximately $2.4 billion of debt at June 30, 2026 (SRC-001). Its 2025 filing reported $802.7 million of net operating cash use (SRC-002). Reported bitcoin is **not** treated as facility collateral.
+Public issuer context is mixed: MARA reported $946.5 million of cash and cash equivalents, $2.8 billion fair value across 34,012 bitcoin, and $3.0 billion of debt at September 30, 2026 (SRC-001). Its 2025 filing reported $802.7 million of net operating cash use (SRC-002). Reported bitcoin is **not** treated as facility collateral.
 
 ## Decision logic
 

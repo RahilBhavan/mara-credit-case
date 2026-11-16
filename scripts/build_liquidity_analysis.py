@@ -27,7 +27,7 @@ def calculate(values: dict[str, Decimal]) -> dict:
         ("LIQ-01", "Reported cash and cash equivalents", cash, "SRC-001", "reported"),
         ("LIQ-02", "Less: cash designated for Exaion operations", -designated, "SRC-001", "calculated from reported approximate share"),
         ("LIQ-03", "Cash after designation screen", available_screen, "SRC-001", "calculated"),
-        ("LIQ-04", "Less: line of credit due within 12 months", -values["FIN-009"], "SRC-001", "reported"),
+        ("LIQ-04", "Less: line of credit due within 12 months (none outstanding at Sept 30)", -values["FIN-009"], "SRC-001", "reported"),
         ("LIQ-05", "Less: December 2026 notes", -values["FIN-010"], "SRC-001", "reported"),
         ("LIQ-06", "Residual before potential holder put", residual_before_put, "SRC-001", "calculated"),
         ("LIQ-07", "Less: June 2031 notes classified current for June 2027 put", -potential_put, "SRC-001", "reported potential obligation"),
@@ -37,7 +37,7 @@ def calculate(values: dict[str, Decimal]) -> dict:
     return {
         "schema_version": "1.0",
         "case_id": "MARA-CR-001",
-        "as_of_date": "2026-06-30",
+        "as_of_date": "2026-09-30",
         "residual_before_potential_put_usd": f"{residual_before_put:.2f}",
         "residual_after_potential_put_usd": f"{residual_after_put:.2f}",
         "rows": [

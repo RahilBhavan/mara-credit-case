@@ -1,7 +1,7 @@
 # Decide the facility, not the dashboard
 
 Status: design decision  
-Case date: June 30, 2026 financial information  
+Case date: September 30, 2026 financial information (refreshed 2026-11-15 from the Form 10-Q filed 2026-11-09)  
 Decision date: hypothetical
 
 ## Committee question

@@ -258,7 +258,7 @@ template = r"""<!doctype html>
       <p class="muted" id="modelRiskLimit"></p>
     </section>
   </div>
-  <footer>Sources: MARA June 30, 2026 Form 10-Q (SRC-001) and 2025 Form 10-K (SRC-002). All case calculations are illustrative. Built from artifacts/scenario-results.json.</footer>
+  <footer>Sources: MARA September 30, 2026 Form 10-Q (SRC-001) and 2025 Form 10-K (SRC-002). All case calculations are illustrative. Built from artifacts/scenario-results.json.</footer>
 </main>
 <script>
 const scenarios=__SCENARIOS__;

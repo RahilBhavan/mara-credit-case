@@ -13,7 +13,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOTS = ROOT / "02-research" / "snapshots" / "2026-09-20"
+SNAPSHOTS = ROOT / "02-research" / "snapshots" / "2026-09-20"  # 10-K (SRC-002)
+Q3_SNAPSHOTS = ROOT / "02-research" / "snapshots" / "2026-11-15"  # Sept 30, 2026 10-Q (SRC-001)
 OUTPUT = ROOT / "artifacts" / "issuer-fact-ledger.csv"
 
 
@@ -72,6 +73,13 @@ def narrative_value(text: str, pattern: str) -> Decimal:
     return Decimal(match.group(1).replace(",", ""))
 
 
+def narrative_present(text: str, pattern: str) -> Decimal:
+    """Zero, for a filing sentence that states there is none; raises if the sentence is absent."""
+    if not re.search(pattern, text, flags=re.I):
+        raise ValueError(f"missing narrative pattern: {pattern}")
+    return Decimal(0)
+
+
 def load_model_values() -> dict[str, Decimal]:
     issuer = json.loads((ROOT / "data" / "case" / "issuer_facts.json").read_text(encoding="utf-8"))
     return {
@@ -83,25 +91,25 @@ def load_model_values() -> dict[str, Decimal]:
 
 
 def build_facts() -> list[Fact]:
-    q_name = "mara-20260630-10q.html"
+    q_name = "mara-20260930-10q.html"
     k_name = "mara-20251231-10k.html"
-    q_raw = (SNAPSHOTS / q_name).read_text(encoding="utf-8", errors="replace")
+    q_raw = (Q3_SNAPSHOTS / q_name).read_text(encoding="utf-8", errors="replace")
     k_raw = (SNAPSHOTS / k_name).read_text(encoding="utf-8", errors="replace")
     q_text, k_text = text_content(q_raw), text_content(k_raw)
     model = load_model_values()
     return [
-        Fact("FIN-001", "cash_and_equivalents_usd", "SRC-001", q_name, "2026-06-30", "xbrl", "us-gaap:CashAndCashEquivalentsAtCarryingValue context c-3 scale 3", xbrl_value(q_raw, "us-gaap:CashAndCashEquivalentsAtCarryingValue", "c-3"), model["cash_and_equivalents_usd"], Decimal("50000"), "USD", "rounded to nearest $0.1m in model"),
-        Fact("FIN-002", "cash_designated_share", "SRC-001", q_name, "2026-06-30", "narrative", "Approximately ([0-9]+)% of cash and cash equivalents", narrative_value(q_text, r"Approximately ([0-9]+)% of cash and cash equivalents") / Decimal("100"), Decimal("0.30"), Decimal("0"), "ratio", "reported approximate percentage"),
-        Fact("FIN-003", "bitcoin_total", "SRC-001", q_name, "2026-06-30", "narrative", "held approximately ([0-9,]+) bitcoin", narrative_value(q_text, r"held approximately ([0-9,]+) bitcoin"), model["bitcoin_total"], Decimal("0"), "BTC", "reported count"),
-        Fact("FIN-004", "bitcoin_fair_value_usd", "SRC-001", q_name, "2026-06-30", "narrative", "total fair value of $([0-9.]+) billion", narrative_value(q_text, r"total fair value of \$([0-9.]+) billion") * Decimal("1000000000"), Decimal("2100000000"), Decimal("0"), "USD", "reported approximate amount"),
-        Fact("FIN-005", "bitcoin_loaned", "SRC-001", q_name, "2026-06-30", "narrative", "loaned out a total of ([0-9,]+) bitcoin", narrative_value(q_text, r"loaned out a total of ([0-9,]+) bitcoin"), Decimal("4742"), Decimal("0"), "BTC", "reported count"),
-        Fact("FIN-006", "bitcoin_pledged", "SRC-001", q_name, "2026-06-30", "xbrl", "mara:NumberOfBitcoinsCollateralized context c-3", xbrl_value(q_raw, "mara:NumberOfBitcoinsCollateralized", "c-3"), Decimal("4528"), Decimal("0"), "BTC", "reported count"),
-        Fact("FIN-007", "bitcoin_unrestricted", "SRC-001", q_name, "2026-06-30", "narrative", "remaining ([0-9,]+) unrestricted bitcoin", narrative_value(q_text, r"remaining ([0-9,]+) unrestricted bitcoin"), model["bitcoin_unrestricted"], Decimal("0"), "BTC", "reported count"),
-        Fact("FIN-008", "debt_usd", "SRC-001", q_name, "2026-06-30", "xbrl", "us-gaap:LongTermDebt context c-3 scale 3", xbrl_value(q_raw, "us-gaap:LongTermDebt", "c-3"), model["debt_usd"], Decimal("50000000"), "USD", "rounded to approximately $2.4bn in model"),
-        Fact("FIN-009", "line_of_credit_usd", "SRC-001", q_name, "2026-06-30", "xbrl", "us-gaap:LongTermDebt context c-108 scale 6", xbrl_value(q_raw, "us-gaap:LongTermDebt", "c-108"), Decimal("150000000"), Decimal("0"), "USD", "reported amount"),
-        Fact("FIN-010", "december_2026_notes_usd", "SRC-001", q_name, "2026-06-30", "xbrl", "us-gaap:LongTermDebt context c-238 scale 3", xbrl_value(q_raw, "us-gaap:LongTermDebt", "c-238"), Decimal("48100000"), Decimal("50000"), "USD", "rounded to nearest $0.1m in memo"),
+        Fact("FIN-001", "cash_and_equivalents_usd", "SRC-001", q_name, "2026-09-30", "xbrl", "us-gaap:CashAndCashEquivalentsAtCarryingValue context c-3 scale 3", xbrl_value(q_raw, "us-gaap:CashAndCashEquivalentsAtCarryingValue", "c-3"), model["cash_and_equivalents_usd"], Decimal("50000"), "USD", "rounded to nearest $0.1m in model"),
+        Fact("FIN-002", "cash_designated_share", "SRC-001", q_name, "2026-09-30", "narrative", "Approximately ([0-9]+)% of cash and cash equivalents", narrative_value(q_text, r"Approximately ([0-9]+)% of cash and cash equivalents") / Decimal("100"), Decimal("0.11"), Decimal("0"), "ratio", "reported approximate percentage"),
+        Fact("FIN-003", "bitcoin_total", "SRC-001", q_name, "2026-09-30", "narrative", "held approximately ([0-9,]+) bitcoin", narrative_value(q_text, r"held approximately ([0-9,]+) bitcoin"), model["bitcoin_total"], Decimal("0"), "BTC", "reported count"),
+        Fact("FIN-004", "bitcoin_fair_value_usd", "SRC-001", q_name, "2026-09-30", "narrative", "total fair value of $([0-9.]+) billion", narrative_value(q_text, r"total fair value of \$([0-9.]+) billion") * Decimal("1000000000"), Decimal("2800000000"), Decimal("0"), "USD", "reported approximate amount"),
+        Fact("FIN-005", "bitcoin_loaned", "SRC-001", q_name, "2026-09-30", "narrative", "we had loaned ([0-9,]+) bitcoin to various counterparties", narrative_value(q_text, r"we had loaned ([0-9,]+) bitcoin to various counterparties"), Decimal("1408"), Decimal("0"), "BTC", "reported count"),
+        Fact("FIN-006", "bitcoin_pledged", "SRC-001", q_name, "2026-09-30", "xbrl", "mara:NumberOfBitcoinCollateralized context c-3", xbrl_value(q_raw, "mara:NumberOfBitcoinCollateralized", "c-3"), Decimal("17852"), Decimal("0"), "BTC", "reported count"),
+        Fact("FIN-007", "bitcoin_unrestricted", "SRC-001", q_name, "2026-09-30", "narrative", "remaining ([0-9,]+) unrestricted bitcoin", narrative_value(q_text, r"remaining ([0-9,]+) unrestricted bitcoin"), model["bitcoin_unrestricted"], Decimal("0"), "BTC", "reported count"),
+        Fact("FIN-008", "debt_usd", "SRC-001", q_name, "2026-09-30", "xbrl", "us-gaap:LongTermDebt context c-3 scale 3", xbrl_value(q_raw, "us-gaap:LongTermDebt", "c-3"), model["debt_usd"], Decimal("50000000"), "USD", "rounded to approximately $3.0bn in model"),
+        Fact("FIN-009", "line_of_credit_usd", "SRC-001", q_name, "2026-09-30", "narrative", "no borrowings remained outstanding under the 2026 Line of Credit", narrative_present(q_text, r"no borrowings remained outstanding and no additional borrowings were available under the 2026 Line of Credit"), Decimal("0"), Decimal("0"), "USD", "reported: none outstanding"),
+        Fact("FIN-010", "december_2026_notes_usd", "SRC-001", q_name, "2026-09-30", "xbrl", "us-gaap:LongTermDebt context c-255 scale 3", xbrl_value(q_raw, "us-gaap:LongTermDebt", "c-255"), Decimal("48100000"), Decimal("50000"), "USD", "rounded to nearest $0.1m in memo"),
         Fact("FIN-011", "operating_cash_flow_usd", "SRC-002", k_name, "2025-12-31", "xbrl", "us-gaap:NetCashProvidedByUsedInOperatingActivities context c-1 scale 3", xbrl_value(k_raw, "us-gaap:NetCashProvidedByUsedInOperatingActivities", "c-1"), Decimal("-802700000"), Decimal("50000"), "USD", "rounded to nearest $0.1m in memo"),
-        Fact("FIN-012", "june_2031_notes_current_usd", "SRC-001", q_name, "2026-06-30", "xbrl", "us-gaap:LongTermDebtCurrent context c-244 scale 3", xbrl_value(q_raw, "us-gaap:LongTermDebtCurrent", "c-244"), Decimal("291600000"), Decimal("50000"), "USD", "rounded to nearest $0.1m in memo"),
+        Fact("FIN-012", "june_2031_notes_current_usd", "SRC-001", q_name, "2026-09-30", "xbrl", "us-gaap:LongTermDebtCurrent context c-261 scale 6", xbrl_value(q_raw, "us-gaap:LongTermDebtCurrent", "c-261"), Decimal("291600000"), Decimal("50000"), "USD", "rounded to nearest $0.1m in memo"),
         Fact("FIN-013", "debt_usd", "SRC-002", k_name, "2025-12-31", "xbrl", "us-gaap:LongTermDebt context c-4 scale 3", xbrl_value(k_raw, "us-gaap:LongTermDebt", "c-4"), Decimal("3600000000"), Decimal("50000000"), "USD", "rounded to approximately $3.6bn in memo"),
     ]
 
@@ -122,7 +130,7 @@ def main() -> int:
                 "fact_id": fact.fact_id,
                 "metric": fact.metric,
                 "source_id": fact.source_id,
-                "snapshot_path": f"02-research/snapshots/2026-09-20/{fact.filename}",
+                "snapshot_path": f"02-research/snapshots/{'2026-11-15' if fact.source_id == 'SRC-001' else '2026-09-20'}/{fact.filename}",
                 "period_end": fact.period_end,
                 "extraction": fact.extraction,
                 "locator": fact.locator,
