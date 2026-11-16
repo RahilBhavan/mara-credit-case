@@ -27,12 +27,12 @@ The limit is the lowest of four caps, rounded down to the nearest $100,000:
 - The illustrative obligor rating is `3 / Watchful`. It is an ordinal judgment, not a probability of default.
 - The collateral is one simulated lot of 4,000,000 USDC on Base (`data/case/collateral.json`). Three of the 11 scenarios apply a 30% or 50% price shock, one of them across the correlated portfolio. The others are the base case, a stale price, zero collateral, two route delays, a route failure, missing ownership evidence and borrower cash stress (`data/case/scenarios.json`, results in `artifacts/scenario-results.csv`).
 
-The borrower facts come from MARA's Form 10-Q for the period ended 30 June 2026 (`artifacts/issuer-fact-ledger.csv`, `artifacts/liquidity-analysis.csv`):
+The borrower facts come from MARA's Form 10-Q for the period ended 30 September 2026 (filed 9 November 2026) (`artifacts/issuer-fact-ledger.csv`, `artifacts/liquidity-analysis.csv`):
 
-- $421.3 million of cash and cash equivalents. About 30% sits in a majority-owned subsidiary and is designated for its operations.
-- 35,577 bitcoin with a $2.1 billion fair value. 4,742 were loaned and 4,528 pledged, which leaves 26,307 unrestricted.
-- About $2.4 billion of debt. This includes a $150 million line of credit due within a year, $48.1 million of December 2026 notes and $291.6 million of notes that holders can put in June 2027.
-- A static liquidity screen leaves $96.8 million after designated cash and near-term debt. If holders exercise the June 2027 put, the screen falls to negative $194.8 million.
+- $946.5 million of cash and cash equivalents. About 11% sits in a majority-owned subsidiary and is designated for its operations.
+- 34,012 bitcoin with a $2.8 billion fair value. 1,408 were loaned and 17,852 pledged, which leaves 14,752 unrestricted. After quarter end MARA repaid its $750.0 million of bitcoin-collateralized loans, and 17,477 pledged bitcoin were returned.
+- $3.0 billion of debt. This includes $750.0 million of bitcoin-collateralized loans due August 2028 (repaid after quarter end), $48.1 million of December 2026 notes and $291.6 million of notes that holders can put in June 2027. No borrowings remained under the 2026 line of credit.
+- A static liquidity screen leaves $794.3 million after designated cash and near-term debt. If holders exercise the June 2027 put, the screen falls to $502.7 million. It does not net the $750.0 million repaid after quarter end, because the filing does not say how it was funded.
 
 The case does not treat MARA's reported bitcoin as collateral for this facility.
 
@@ -64,7 +64,7 @@ python3 scripts/validate_package.py
 python3 scripts/build_package.py
 ```
 
-On 21 Oct 2026 with Python 3.14.7, all 65 tests passed and the validator reported 49 PASS, 0 FAIL, 0 SKIP. `scripts/build_package.py` rewrites every artifact in dependency order, then runs the tests and the validator. That run also finished without errors.
+On 15 Nov 2026 with Python 3.14, all 65 tests passed and the validator reported 49 PASS, 0 FAIL, 0 SKIP. `scripts/build_package.py` rewrites every artifact in dependency order, then runs the tests and the validator. That run also finished without errors.
 
 The workbook builder is not in this repository, so `build_package.py` skips that step and keeps the committed `outputs/credit-model.xlsx`. The validator and `scripts/audit_workbook.py` check its formulas and values. The decision-view audit needs Node.js. On macOS with `ffmpeg`, add `--with-demo` to rebuild the narrated video. No step needs credentials or paid data.
 
@@ -98,9 +98,9 @@ PYTHONPATH=src python3 -m credit_risk --case-dir data/case --scenario collateral
 
 ## Sources
 
-The source register is `02-research/source-register.csv`. All five sources were retrieved on 20 Sep 2026 and frozen as HTML snapshots under `02-research/snapshots/2026-09-20/`, each with a SHA-256 hash that the validator checks.
+The source register is `02-research/source-register.csv`. Four sources were retrieved on 20 Sep 2026 and frozen as HTML snapshots under `02-research/snapshots/2026-09-20/`; the MARA 10-Q was refreshed to the 30 Sep 2026 filing and frozen on 15 Nov 2026 under `02-research/snapshots/2026-11-15/`, each with a SHA-256 hash that the validator checks.
 
-- MARA Holdings Form 10-Q for the period ended 30 June 2026 (SEC EDGAR).
+- MARA Holdings Form 10-Q for the period ended 30 September 2026 (SEC EDGAR).
 - MARA Holdings Form 10-K for the year ended 31 December 2025 (SEC EDGAR).
 - Coinbase Exchange API documentation for product candles and the product book.
 - Base protocol documentation on derivation and finality.

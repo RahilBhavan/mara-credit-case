@@ -94,15 +94,15 @@ slides = [
         slide(1, "A disputed $5 million credit decision", "Approve, reduce, condition, or decline?", [
             "The case uses MARA Holdings public filings, but it does not claim a Coinbase relationship.",
             "The facility, collateral, Base route, portfolio, and policy limits are fictional by design.",
-        ], [("Requested", "$5.0m", NAVY), ("Conditional limit", "$3.0m", GREEN), ("Information date", "Jun 30, 2026", BLUE)]),
+        ], [("Requested", "$5.0m", NAVY), ("Conditional limit", "$3.0m", GREEN), ("Information date", "Sep 30, 2026", BLUE)]),
         "This project asks a narrow credit committee question. Would you approve a hypothetical five million dollar, twelve month facility? MARA Holdings supplies the public financial facts, but every lending term is fictional. The current answer is a three million dollar conditional limit, subject to evidence that does not exist in public filings.",
     ),
     (
         slide(2, "Underwrite the obligor first", "Headline liquidity is not the same as repayment capacity", [
-            "MARA reported $421.3 million of cash and $2.1 billion of bitcoin fair value.",
-            "It also reported about $2.4 billion of debt and $802.7 million of 2025 operating cash use.",
+            "MARA reported $946.5 million of cash and $2.8 billion of bitcoin fair value.",
+            "It also reported $3.0 billion of debt and $802.7 million of 2025 operating cash use.",
             "Reported bitcoin is never treated as collateral for this fictional facility.",
-        ], [("Cash", "$421.3m", NAVY), ("Debt", "~$2.4bn", RED), ("2025 operating cash use", "$802.7m", RED)]),
+        ], [("Cash", "$946.5m", NAVY), ("Debt", "$3.0bn", RED), ("2025 operating cash use", "$802.7m", RED)]),
         "The analysis starts with the borrower, not the collateral. MARA reported four hundred twenty one point three million dollars of cash and about two point one billion dollars of bitcoin fair value. But debt was roughly two point four billion dollars, and the prior year used more than eight hundred million dollars of operating cash. Public statements cannot establish which cash belongs to the borrowing entity or which assets a lender can control.",
     ),
     (

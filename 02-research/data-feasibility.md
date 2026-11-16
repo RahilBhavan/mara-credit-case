@@ -5,14 +5,14 @@ Evidence review date: September 20, 2026
 
 ## Selected public issuer
 
-MARA Holdings, Inc. is the selected case because its current SEC filings expose liquidity, debt, operating cash use, and several states of bitcoin availability. The June 30, 2026 Form 10-Q reports:
+MARA Holdings, Inc. is the selected case because its current SEC filings expose liquidity, debt, operating cash use, and several states of bitcoin availability. The September 30, 2026 Form 10-Q (filed November 9, 2026) reports:
 
-- $421.3 million of cash and cash equivalents, excluding restricted cash;
-- about 30% of cash and cash equivalents held by majority-owned Exaion and designated for its operations for the next year;
-- 35,577 bitcoin with a reported fair value of $2.1 billion at $58,524 per bitcoin;
-- 4,742 bitcoin loaned to third parties, 4,528 pledged as collateral, and 26,307 reported as unrestricted;
-- about $2.4 billion of debt after note repurchases;
-- a $150 million line of credit due within twelve months, $48.1 million of December 2026 notes, and $291.6 million classified current because holders can require repurchase in June 2027.
+- $946.5 million of cash and cash equivalents, excluding restricted cash;
+- about 11% of cash and cash equivalents held by majority-owned Exaion and designated for its operations for the next year;
+- 34,012 bitcoin with a reported fair value of $2.8 billion at about $83,556 per bitcoin;
+- 1,408 bitcoin loaned to third parties, 17,852 pledged as collateral, and 14,752 reported as unrestricted;
+- $3.0 billion of debt, including $750.0 million of bitcoin-collateralized loans that were repaid in full after quarter end;
+- no borrowings outstanding under the 2026 line of credit, $48.1 million of December 2026 notes, and $291.6 million classified current because holders can require repurchase in June 2027.
 
 These facts are enough to study financial capacity and asset availability. They are not enough to approve a real loan. The filing does not establish which assets a new lender could take, where the assets are held, whether liens exist beyond disclosed pledges, or whether a security interest would be enforceable.
 
@@ -66,7 +66,7 @@ The five cited public pages were retrieved on September 20, 2026 and preserved u
 
 ## Sources reviewed
 
-- [MARA June 30, 2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1507605/000150760526000022/mara-20260630.htm)
+- [MARA September 30, 2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1507605/000150760526000028/mara-20260930.htm)
 - [MARA 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1507605/000150760526000007/mara-20251231.htm)
 - [Coinbase Exchange product candles](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles)
 - [Coinbase Exchange product book](https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-book)

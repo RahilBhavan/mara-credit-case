@@ -31,7 +31,7 @@ class DecisionLineageTests(unittest.TestCase):
         self.assertEqual(rows["LIN-04"]["current_value"], "3870600.00")
         self.assertEqual(rows["LIN-08"]["current_value"], "3000000.00")
         self.assertEqual(rows["LIN-09"]["current_value"], "blocked_pending_conditions")
-        self.assertEqual(rows["LIN-10"]["current_value"], "-194790000.00")
+        self.assertEqual(rows["LIN-10"]["current_value"], "502685000.00")
         self.assertEqual(rows["LIN-11"]["current_value"], "1")
 
 

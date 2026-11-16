@@ -50,7 +50,7 @@ It also creates `rating-analysis.json` and `rating-analysis.csv`. The five decla
 
 `monitoring-plan.json` and `monitoring-plan.csv` define eight post-close rules. Calculated projections, the pre-funding blocked state, and unavailable private observations remain separate. The plan is not evidence that monitoring occurred or that a borrower complied.
 
-`liquidity-analysis.json` and `liquidity-analysis.csv` reproduce a nine-row public-data bridge from the reconciled fact ledger. The $96.81 million pre-put residual and negative $194.79 million post-put sensitivity are static screens, not forecasts; the method limitation lists the excluded cash flows and entity-level evidence.
+`liquidity-analysis.json` and `liquidity-analysis.csv` reproduce a nine-row public-data bridge from the reconciled fact ledger. The $794.29 million pre-put residual and $502.69 million post-put sensitivity are static screens, not forecasts; the method limitation lists the excluded cash flows and entity-level evidence.
 
 Extract and reconcile the cited SEC facts from the frozen filings:
 

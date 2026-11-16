@@ -2,7 +2,7 @@
 
 **Status:** Draft for self-review; not externally reviewed  
 **Case version:** MARA-CR-001  
-**Information date:** June 30, 2026  
+**Information date:** September 30, 2026  
 **Decision:** Conditionally approve a maximum **$3.0 million** commitment, subject to the pre-funding conditions below; otherwise decline.
 
 > This is a hypothetical exercise using public issuer information. MARA is not represented as a Coinbase customer. The facility, collateral, Base location, covenants, portfolio, policy limits, and internal rating are fictional. The results below are illustrative calculations, not outputs of a completed or tested model.
@@ -23,11 +23,11 @@ The $3.0 million limit is below the illustrative collateral cap of $3.046 millio
 
 ## Credit view
 
-MARA reported $421.3 million of cash and cash equivalents at June 30, 2026, but approximately 30% was held by majority-owned Exaion and designated for its operations over the following year (SRC-001). MARA also reported 35,577 bitcoin with a $2.1 billion fair value: 4,742 loaned, 4,528 pledged, and 26,307 described as unrestricted (SRC-001). None is assumed to secure this facility.
+MARA reported $946.5 million of cash and cash equivalents at September 30, 2026, but approximately 11% was held by majority-owned Exaion and designated for its operations over the following year (SRC-001). MARA also reported 34,012 bitcoin with a $2.8 billion fair value: 1,408 loaned, 17,852 pledged, and 14,752 described as unrestricted (SRC-001). None is assumed to secure this facility.
 
-Liquidity must be read beside leverage and cash use. MARA reported approximately $2.4 billion of debt after note repurchases, including a $150 million line of credit due within twelve months, $48.1 million of December 2026 notes, and $291.6 million classified current because holders can require repurchase in June 2027 (SRC-001). The 2025 Form 10-K reported $802.7 million of net cash used in operating activities and $3.6 billion of year-end debt (SRC-002). These facts support capacity at the requested scale but also argue against treating headline liquidity as an uncomplicated repayment source.
+Liquidity must be read beside leverage and cash use. MARA reported $3.0 billion of debt at September 30, 2026, including $750.0 million of bitcoin-collateralized loans maturing in August 2028, $48.1 million of December 2026 notes, and $291.6 million classified current because holders can require repurchase in June 2027; no borrowings remained outstanding under its 2026 line of credit (SRC-001). After quarter end it repaid all $750.0 million of the bitcoin-collateralized loans (SRC-001). The 2025 Form 10-K reported $802.7 million of net cash used in operating activities and $3.6 billion of year-end debt (SRC-002). These facts support capacity at the requested scale but also argue against treating headline liquidity as an uncomplicated repayment source.
 
-A static public-data bridge sharpens that tension. Reported cash less the approximate Exaion designation, the $150 million line, and the $48.1 million December 2026 notes leaves **$96.81 million**. Adding the $291.6 million holder-put sensitivity produces **negative $194.79 million**. This is not a liquidity forecast: it excludes inflows, operating needs, capex, taxes, other restrictions, and unlisted obligations, and it does not assert that holders will exercise the put.
+A static public-data bridge shows the September 30 position. Reported cash less the approximate Exaion designation, the line of credit (none outstanding), and the $48.1 million December 2026 notes leaves **$794.29 million**. Deducting the $291.6 million holder-put sensitivity leaves **$502.69 million**. The bridge does not net the $750.0 million repaid after quarter end, because the filing does not state how it was funded. This is not a liquidity forecast: it excludes inflows, operating needs, capex, taxes, other restrictions, and unlisted obligations, and it does not assert that holders will exercise the put.
 
 The **primary repayment source is not yet established**. For this draft, it is assumed to be unrestricted operating liquidity and working-capital cash generation, not collateral liquidation (ASM-C001). That assumption requires a current cash forecast, facility purpose, legal-entity cash map, and debt-service schedule before funding. The illustrative internal grade is **3 / Watchful**, produced by five declared factors with a weighted score of **3.10**: ample reported asset liquidity relative to the request, offset by material leverage, historical operating cash use, bitcoin price exposure, and incomplete private diligence (ASM-C004). It is an ordinal judgment, not a calibrated probability of default or Coinbase rating.
 
